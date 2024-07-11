@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     int colour = rand()%8 + 40;
     char colourstr[8];
     sprintf(colourstr, "\e[0;%dm", colour);
-    char resetstr[] = "\e[0m";
+    char resetstr[] = "\e[0;107m";
 
     int *arr = malloc((dim/2)*sizeof(int));
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
         for (int i = 0; i < dim/2; ++i)
             printf("%s  ", arr[dim/2 - i - 1] ? colourstr : resetstr);
 
-        printf("%s\n", resetstr);
+        printf("\e[0m\n");
     }
 
     free(arr);
